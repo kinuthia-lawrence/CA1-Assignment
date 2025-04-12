@@ -1,4 +1,4 @@
-package com.larrykin.ca1assignment;
+package com.larrykin.ca1assignment.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
