@@ -9,9 +9,10 @@ import java.io.IOException;
 public class Main extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        scene.getStylesheets().add(Main.class.getResource("styles.css").toExternalForm());
+        stage.setTitle("Confectionery Oven Management System");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.larrykin.ca1assignment.controllers.MainController" stylesheets="@styles.css">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label styleClass="title-label" text="Confectionery Oven Management System" />
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Oven Mode:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <RadioButton fx:id="stackModeRadio" text="Stack (LIFO)" toggleGroup="$ovenModeGroup" />
+            <RadioButton fx:id="queueModeRadio" text="Queue (FIFO)" toggleGroup="$ovenModeGroup" />
+            <fx:define>
+                <ToggleGroup fx:id="ovenModeGroup" />
+            </fx:define>
+        </HBox>
+
+        <Label text="Cake Type:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <ComboBox fx:id="cakeTypeComboBox" prefWidth="200" promptText="Select cake type" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Weight (g):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="weightField" promptText="Enter weight in grams" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Best Before Date:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <DatePicker fx:id="bestBeforeDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" alignment="CENTER">
+            <Button text="Add Cake" onAction="#handleAddCake" styleClass="action-button" />
+            <Button text="Remove Cake" onAction="#handleRemoveCake" styleClass="action-button" />
+            <Button text="Exit" onAction="#handleExit" styleClass="exit-button" />
+        </HBox>
+    </GridPane>
+
+    <VBox styleClass="info-panel">
+        <HBox alignment="CENTER" spacing="20">
+            <Label text="Oven Capacity:" />
+            <Label fx:id="ovenCapacityLabel" text="0 / 5" styleClass="capacity-label" />
+        </HBox>
+        <Label fx:id="topCakeLabel" text="No cakes in the oven" styleClass="top-cake-label" />
+    </VBox>
+
+    <Label text="Cakes in Oven:" />
+    <ListView fx:id="cakesListView" prefHeight="200" />
+
+    <Label fx:id="statusLabel" text="Ready" styleClass="status-label" />
+</VBox>
